@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "got": "^14.2.1",
+    "ics": "^3.7.2",
     "node-html-parser": "^6.1.13",
     "tough-cookie": "^4.1.4"
   },

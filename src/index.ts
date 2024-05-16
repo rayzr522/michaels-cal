@@ -1,6 +1,7 @@
 import { fail } from "assert";
 import { writeFileSync } from "fs";
 import got from "got";
+import ics, { EventAttributes } from "ics";
 import { parse } from "node-html-parser";
 import { CookieJar } from "tough-cookie";
 
@@ -64,7 +65,9 @@ async function loginToWfm(opts: { wbat: string; url_login_token: string }) {
   });
 }
 
-async function fetchSchedule(opts: { monthYear?: string }) {
+async function fetchSchedule(opts: {
+  monthYear?: string;
+}): Promise<MonthlySchedule> {
   const res = await michaelsClient
     .get("time/timesheet/etmTnsMonth.jsp", {
       searchParams: {
@@ -90,30 +93,130 @@ async function fetchSchedule(opts: { monthYear?: string }) {
   ];
 
   return {
-    month,
-    year,
-    schedule: dayEls.map((it) => ({
+    date: new Date(`${month} ${year}`),
+    schedule: dayEls.map((it, i) => ({
       isVacation: !!it.querySelector(".calendarCellVacation"),
       shiftName:
         it.querySelector(".calendarTextShiftName")?.innerText.trim() ?? "",
+      date: new Date(`${month} ${i + 1} ${year}`),
     })),
   };
+}
+
+type MonthlySchedule = {
+  date: Date;
+  schedule: ScheduleEntry[];
+};
+
+type ScheduleEntry = {
+  isVacation: boolean;
+  shiftName: string;
+  date: Date;
+};
+
+function getNextMonthYear(date: Date) {
+  const nextMonth = date.getMonth() + 1;
+  return `${(nextMonth % 12) + 1}/${date.getFullYear() + Math.floor(nextMonth / 12)}`;
+}
+
+type NormalizedScheduleEntry =
+  | {
+      type: "vacation";
+      date: Date;
+      days: number;
+    }
+  | {
+      type: "scheduled";
+      date: Date;
+      start: Date;
+      end: Date;
+      shiftName: string;
+    };
+
+function normalizeScheduleEntries(
+  entries: ScheduleEntry[],
+): NormalizedScheduleEntry[] {
+  return entries.reduce((acc, next) => {
+    if (next.isVacation) {
+      const previous = acc[acc.length - 1];
+      if (previous?.type === "vacation") {
+        previous.days++;
+      } else {
+        acc.push({ type: "vacation", date: next.date, days: 1 });
+      }
+    } else if (next.shiftName) {
+      const [shiftStartTime, shiftEndTime] = next.shiftName.split(" - ");
+      acc.push({
+        type: "scheduled",
+        date: next.date,
+        start: new Date(`${next.date.toDateString()} ${shiftStartTime}`),
+        end: new Date(`${next.date.toDateString()} ${shiftEndTime}`),
+        shiftName: next.shiftName,
+      });
+    }
+    return acc;
+  }, [] as NormalizedScheduleEntry[]);
 }
 
 try {
   const loginParams = await getLoginParams();
   console.log("loginParams", loginParams);
+
   await loginToWfm(loginParams);
   console.log("logged in");
+
   const currentMonthSchedule = await fetchSchedule({});
   console.log("currentMonthSchedule", currentMonthSchedule);
-  const currentMonth = new Date(
-    `${currentMonthSchedule.month} ${currentMonthSchedule.year}`,
-  );
-  const nextMonth = currentMonth.getMonth() + 1;
-  const nextMonthYear = `${(nextMonth % 12) + 1}/${currentMonth.getFullYear() + Math.floor(nextMonth / 12)}`;
+
+  const nextMonthYear = getNextMonthYear(currentMonthSchedule.date);
   const nextMonthSchedule = await fetchSchedule({ monthYear: nextMonthYear });
   console.log("nextMonthSchedule", nextMonthSchedule);
+
+  const now = Date.now();
+  const sequence = Math.floor(now / 60_000);
+
+  const normalizedEntries = normalizeScheduleEntries([
+    ...currentMonthSchedule.schedule,
+    ...nextMonthSchedule.schedule,
+  ]);
+
+  const cal = ics.createEvents(
+    normalizedEntries.reduce((acc, next) => {
+      const partialAttributes = {
+        uid: `michaels-${next.date.getTime()}`,
+        sequence,
+        created: currentMonthSchedule.date.getTime(),
+        lastModified: now,
+        calName: "Michaels Work Schedule",
+      } satisfies Partial<EventAttributes>;
+
+      if (next.type === "vacation") {
+        acc.push({
+          ...partialAttributes,
+          start: next.date.getTime(),
+          duration: { days: next.days },
+          title: "Michaels: Vacation",
+          busyStatus: "FREE",
+          transp: "TRANSPARENT",
+        });
+      } else if (next.type === "scheduled") {
+        acc.push({
+          ...partialAttributes,
+          start: next.start.getTime(),
+          end: next.end.getTime(),
+          title: `Michaels: ${next.shiftName} shift`,
+          location: process.env.MICHAELS_ADDRESS || undefined,
+          busyStatus: "BUSY",
+          transp: "OPAQUE",
+        });
+      }
+      return acc;
+    }, [] as EventAttributes[]),
+  );
+  if (!cal.value || cal.error) {
+    throw new Error(`error generating ics: ${cal.error?.message ?? "unknown"}`);
+  }
+  writeFileSync("./out/michaels-cal.ics", cal.value);
 } catch (e) {
   console.error("got error:", e);
   process.exit(1);

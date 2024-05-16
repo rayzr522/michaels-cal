@@ -1,0 +1,2569 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<script type='text/javascript'>
+  window.name = 'wfm_top_window';
+  var wfm_top_window_flag = true;
+</script>
+<script type='text/javascript' src='/system/wfmupfront-193270305.js'></script>
+<html>
+
+<head>
+  <title>WORKBRAIN - Employee Self Service Kiosk</title>
+  <link rel='icon' type='image/x-icon' href='/lib/UX/favicon.ico' />
+  <META HTTP-EQUIV='Pragma' CONTENT='no-cache'>
+  <meta name="robots" content="noindex, nofollow">
+  <script type='text/javascript' src='/system2/scripts/wb-logging-util-193270305.js'></script>
+  <script type='text/javascript' src='/js/json-193270305.js'></script>
+  <script type='text/javascript' src='/system2/scripts/wb-core-util-193270305.js'></script>
+  <script type='text/javascript'>var contextPath = '';</script>
+  <script
+    type='text/javascript'>var contextURL = location.href.substring(0, location.href.indexOf('/', 8)) + contextPath;</script>
+  <script type='text/javascript'>var formPath = '\/etm\/time\/timesheet\/etmTnsMonth.jsp';</script>
+  <script type='text/javascript'>var userLocale = 'en';</script>
+  <script type='text/javascript' src='/lib/wgxpath/wgxpath.install-193270305.js'></script>
+  <script type='text/javascript' src='/lib/jquery/jquery-1.11.1-193270305.js'></script>
+  <script type='text/javascript' src='/lib/jquery-migrate/jquery-migrate-1.4.1.min-193270305.js'></script>
+  <script type='text/javascript' src='/lib/jquery-ui/jquery-ui-1.10.4-193270305.js'></script>
+  <script type='text/javascript' src='/js/mod/jquery.ui.datepicker.mod-193270305.js'></script>
+  <script type='text/javascript' src='/system/wbutil-193270305.js'></script>
+  <script type='text/javascript' src='/system/wbjquery-193270305.js'></script>
+  <script type='text/javascript' src='/system/wfm.common.widgets-193270305.js'></script>
+  <script type='text/javascript' src='/system/wfm.common.initialization-193270305.js'></script>
+
+  <link href='/etm/workbrain.css' rel='stylesheet' type='text/css'>
+  <link href='/etm/infor_partial_includable.css' rel='stylesheet' type='text/css'>
+  <link href='/etm/wbjquery.css' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body bgcolor='white'
+  onload='wgxpath.install(); if ( window.initializePage ) { initializePage(); }jumpToLastScrollPos();'
+  class='etmTnsMonth'>
+  <form name=page_form method='POST' action="/etm/time/timesheet/etmTnsMonth.jsp" onSubmit='return wbValidateForm();'>
+    <input type='hidden' name='wbat' id='wbat' value='L3wOPdp1x9ZGddyShhA7TywLZEC12uU7'><input type='hidden'
+      name='pageAction' value=''>
+    <div id='breadcrumb' style='display:none'></div>
+    <div id='pageStatusBox'>
+      <div id='statusLeft' class='statusLeft'></div>
+      <div id='statusMessage' class='statusMsg'>
+        <ul id='list'></ul>
+      </div>
+      <div id='statusRight' class='statusRight'></div>
+    </div>
+
+    <script type="text/javascript" src="/etm/js/etm.schedule.views-193270305.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/etm/etm.css" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+    <script type='text/javascript'>
+      window.name = 'wfm_top_window';
+      var wfm_top_window_flag = true;
+    </script>
+    <script type='text/javascript' src='/system/wfmupfront-193270305.js'></script>
+
+
+    <link rel="stylesheet" type="text/css" href="/etm/css/jquery.custom.css">
+    <link rel="stylesheet" type="text/css" href="/etm/css/etmMenu.css">
+
+
+    <script type="text/javascript" src="/system2/scripts/wb-core-193270305.js"></script>
+    <script type="text/javascript" src="/etm/js/etm.dialog-193270305.js"></script>
+    <script type="text/javascript" src="/etm/js/etm.common-193270305.js"></script>
+    <script type="text/javascript" src="/etm/js/etm.home.page-193270305.js"></script>
+
+
+
+    <div id="ui_background_overlay"></div>
+
+
+
+
+
+
+
+
+
+
+    <input type="hidden" name="clockTimeFormat" value="HH:mm">
+    <input type="hidden" name="clockTimeInvalidFormat" value="XX:XX:XX">
+
+    <input type="hidden" name="lastServerTime" value="">
+    <input type="hidden" name="initialCurrentTime" value="">
+    <input type="hidden" name="timeToNextDstTransition" value="">
+
+    <input type="hidden" name="tran" value="-1">
+    <input type="hidden" name="tzOffset" value="">
+    <input type="hidden" name="rawOffset" value="">
+    <input type="hidden" name="rightNowInDST" value="">
+    <input type="hidden" name="tzDSTObserved" value="">
+
+
+    <input type="hidden" name="contextPathParam" value="">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
+      // locale data required for date formatting object
+      var localeData = {
+        month: ["January", "February", "March",
+          "April", "May", "June",
+          "July", "August", "September",
+          "October", "November", "December"],
+        shortMonth: ["Jan", "Feb", "Mar",
+          "Apr", "May", "Jun",
+          "Jul", "Aug", "Sep",
+          "Oct", "Nov", "Dec"],
+        day: ["Sunday", "Monday", "Tuesday",
+          "Wednesday", "Thursday", "Friday", "Saturday"],
+        shortDay: ["Sun", "Mon", "Tue",
+          "Wed", "Thu", "Fri", "Sat"],
+        firstDayOfWeek: 0,
+        AmPm: ["AM", "PM"],
+        eras: ["BC", "AD"],
+        toOrdinal: function (number) {
+          return number + ".";
+        }
+      }
+
+      function getLocaleData() {
+        return localeData;
+      }
+
+    </script>
+
+
+
+
+
+    <input type=hidden name='selectedTocID' value='181' />
+
+
+
+
+    <input type=hidden name='parentID' value='10' />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <input type=hidden name='msg' value='' />
+
+
+    <input type=hidden name='pageFullyLoaded' value='' />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script type='text/javascript'>
+      var JSVAR_OK = "Ok";
+      var JSVAR_CANCEL = "Cancel";
+      var JSVAR_CONFIRM_TITLE = "Confirm";
+      var JSVAR_ALERT_TITLE = "Alert";
+      var JSVAR_YES = "Yes";
+      var JSVAR_NO = "No";
+    </script>
+
+
+    <div id="user_name" style="display:none;">CAT52</div>
+    <div id="user_full_name" style="display:none;">Blood, Cat</div>
+    <div id="pendo_visitor_id" style="display:none;">kUJlaKNT9dGaISlP</div>
+    <div id="pendo_visitor_name" style="display:none;">kUJlaKNT9dGaISlP</div>
+
+
+    <input type=hidden name='pwdExpDays' value='NotInit' />
+
+
+
+
+    <input type=hidden name='pwdAlertMsg' value='NotInit' />
+
+
+
+
+
+
+
+
+
+    <div id="wrapper">
+      <div class="config">
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+
+      <div id="header">
+        <div id="home_container">
+          <div class="security"></div>
+          <div class="config"></div>
+          <div id="etm-clock-time-wrapper">
+
+            <span class="etm-clock-time-header">Time:</span>
+
+
+            <div id="etm-clock-time" class="etm-time"></div>
+
+          </div>
+        </div>
+        <div id="employee_container">
+          <div class="security"></div>
+
+          <div class="employee_name">Blood, Cat</div>
+
+          <div class="security"></div>
+          <div class="config"></div>
+
+
+          <script type="text/javascript">
+            function onLogout(event) {
+              var action = function () {
+                SESSION.setIsValid(false);
+                document.forms.page_form.pageAction.value = 'logout';
+                document.forms.page_form.submit();
+              };
+              return confirmDialog(JSVAR_CONFIRM_TITLE, JSVAR_YES, JSVAR_NO, 'Are you sure you want to leave?', action);
+            }
+          </script>
+
+
+
+          <div onclick="onLogout()" class="logout-but" title="Logout">Logout</div>
+
+        </div>
+      </div>
+
+
+      <div class="clearfix"></div>
+
+      <div class="security"></div>
+      <div class="config"></div>
+      <div class="nav">
+        <ul class="sf-menu absolute main-menu">
+
+
+
+          <li title=""><a href="#" onClick="setLocationAndClearFrame('', '/etm/etmMenu.jsp?parentID=0')"><span
+                class="nav-home"></span>Home</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <li title="Messages"><a href="#"
+              onClick="setLocationAndClearFrame('', '/etm/messaging/etmMsgList.jsp?selectedTocID=51&parentID=50')"><span
+                class="nav-messages"></span> Messages <span class="message">0</span></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <li class="active" title="Work Schedule"><a href="#"
+              onClick="setLocationAndClearFrame('', '/etm/time/timesheet/etmTnsMonth.jsp?selectedTocID=181&parentID=10')"><span
+                class="nav-schedule"></span> Work Schedule</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <li title="Availability"><a href="#"
+              onClick="setLocationAndClearFrame('', '/availability/action/ProcessSelection.action?DOMAIN=VR&selectedTocID=10190&parentID=10189')">
+              Availability</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <li title="Time Off"><a href="#"
+              onClick="setLocationAndClearFrame('', '/etm/ta/top/etmTOPCal.jsp?selectedTocID=155&parentID=182')"><span
+                class="nav-timeoff"></span> Time Off</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </ul>
+        <ul class="sf-menu alignright controls-menu">
+          <div class="security"></div>
+
+          <li><span class="move-left"><a href="#" class="chev_left" /></a></span></li>
+          <li><span class="move-right"><a href="#" class="chev_right" /></a></span></li>
+
+
+
+          <div class="security"></div>
+          <div class="config">
+
+
+          </div>
+
+
+
+          <div class="security"></div>
+          <div class="config"></div>
+
+
+
+          <div class="security"></div>
+          <div class="config"></div>
+
+        </ul>
+        <div class="clearfix"></div>
+      </div>
+
+
+
+
+
+      <div id="sub-menu" class="nav2">
+        <ul>
+
+
+
+
+
+
+
+
+
+
+
+          <li class="active"><a href="#"
+              onClick="setLocationAndClearFrame('', '/etm/time/timesheet/etmTnsMonth.jsp?selectedTocID=181&parentID=10')">Schedule</a>
+          </li>
+
+
+
+
+
+
+
+
+
+
+          <li><a href="#"
+              onClick="setLocationAndClearFrame('', '/etm/time/timesheet/etmTnsDetail.jsp?selectedTocID=11&parentID=10')">Timesheet</a>
+          </li>
+
+
+
+
+
+
+
+
+
+
+          <li><a href="#"
+              onClick="setLocationAndClearFrame('', '/etm/time/etmDailyLog.jsp?selectedTocID=14&parentID=10')">Transactions</a>
+          </li>
+
+
+
+
+
+
+
+
+
+
+          <li><a href="#"
+              onClick="setLocationAndClearFrame('', '/etm/modules/billboard/etmBillboardView.jsp?selectedTocID=10193&parentID=10')">Shift
+              Billboard</a></li>
+
+
+        </ul>
+      </div>
+
+
+
+
+    </div>
+
+    </div>
+
+    </div>
+
+    <div class="clearfix"></div>
+
+
+
+    <script type="text/javascript">
+
+      //Must have in firefox to avoid in-memory cache to kick in
+      window.onunload = function () { };
+      //check if session is alive to avoid showing the page from cache after logout
+      //can be removed after proper headers set to 'no-cache, no-store'
+      checkSessionAlive();
+
+      function checkForPwdChange(pwdAlertMsg, pwdExpDays) {
+
+      }
+
+    </script>
+
+
+    <div id="etmContent">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <table id="htmlHeaderTable" class="htmlButtonTable">
+        <tr>
+          <td nowrap width=25%>
+            <span class="pageTitle">May&nbsp;2024</span>
+          <td nowrap width=75% align=right><span class="calLegendTitle"></span>&nbsp;&nbsp;</td>
+          <td class="htmlButtonCell">
+
+
+
+          </td>
+          <td class="htmlButtonCell">
+
+
+
+            <table onClick="window.location='/etm/time/timesheet/etmTnsDay.jsp?date=05.16.2024';return false"
+              class='imageButton' cellpadding=0 cellspacing=0>
+              <tr>
+                <td width=17><img src='/etm/images/etmbleft.png' width=17 height=39 alt='' border=0></td>
+                <td background='/etm/images/etmbbg.png' align=center nowrap>
+                  <span class='buttonNavigationText'>Day</span>
+                </td>
+                <td width=17><img src='/etm/images/etmbright.png' width=17 height=39 alt='' border=0></td>
+              </tr>
+            </table>
+
+          </td>
+          <td class="htmlButtonCell">
+
+
+
+            <table
+              onClick="window.location='/etm/time/timesheet/etmTnsWeek.jsp?NEW_START_DATE=20240512&SELECTED_DATE=20240516';return false"
+              class='imageButton' cellpadding=0 cellspacing=0>
+              <tr>
+                <td width=17><img src='/etm/images/etmbleft.png' width=17 height=39 alt='' border=0></td>
+                <td background='/etm/images/etmbbg.png' align=center nowrap>
+                  <span class='buttonNavigationText'>Week</span>
+                </td>
+                <td width=17><img src='/etm/images/etmbright.png' width=17 height=39 alt='' border=0></td>
+              </tr>
+            </table>
+
+          </td>
+          <td class="htmlButtonCell">
+
+
+            <table class='imageButton' cellpadding=0 cellspacing=0>
+              <tr>
+                <td width=17><img src='/etm/images/etmbleftselect.png' width=17 height=39 alt='' border=0></td>
+                <td background='/etm/images/etmbbgselect.png' align=center nowrap>
+                  <span class='buttonNavigationText selectedButton'>Month</span>
+                </td>
+                <td width=17><img src='/etm/images/etmbrightselect.png' width=17 height=39 alt='' border=0></td>
+              </tr>
+            </table>
+
+          </td>
+        </tr>
+      </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div id="scrollContainer">
+        <table class="etmScheduleTable">
+          <tr align=center>
+            <th class="calWeekDayHeader" width='14%'>Sun</td>
+            <th class="calWeekDayHeader" width='14%'>Mon</td>
+            <th class="calWeekDayHeader" width='14%'>Tue</td>
+            <th class="calWeekDayHeader" width='14%'>Wed</td>
+            <th class="calWeekDayHeader" width='14%'>Thu</td>
+            <th class="calWeekDayHeader" width='14%'>Fri</td>
+            <th class="calWeekDayHeader" width='14%'>Sat</td>
+          </tr>
+
+          <tr>
+
+
+
+
+
+
+
+
+
+            <td valign=top class="calTD-OutOfScope" height="62">
+
+              <table cellpadding=0 cellspacing=0 width=100% class="" onClick="">
+                <tr>
+                  <td valign=top width=10>
+
+                  </td>
+                  <td valign=middle height="62" align=center>
+
+
+
+
+
+                    <span class="calTD-OutOfScope etmNoBorder">
+
+                    </span>
+                  </td>
+                </tr>
+              </table>
+            </td>
+
+
+
+
+
+
+
+
+
+
+            <td valign=top class="calTD-OutOfScope" height="62">
+
+              <table cellpadding=0 cellspacing=0 width=100% class="" onClick="">
+                <tr>
+                  <td valign=top width=10>
+
+                  </td>
+                  <td valign=middle height="62" align=center>
+
+
+
+
+
+                    <span class="calTD-OutOfScope etmNoBorder">
+
+                    </span>
+                  </td>
+                </tr>
+              </table>
+            </td>
+
+
+
+
+
+
+
+
+
+
+            <td valign=top class="calTD-OutOfScope" height="62">
+
+              <table cellpadding=0 cellspacing=0 width=100% class="" onClick="">
+                <tr>
+                  <td valign=top width=10>
+
+                  </td>
+                  <td valign=middle height="62" align=center>
+
+
+
+
+
+                    <span class="calTD-OutOfScope etmNoBorder">
+
+                    </span>
+                  </td>
+                </tr>
+              </table>
+            </td>
+
+
+
+
+
+
+
+
+
+
+
+            <td valign=top class="calendarCellRegularPast" height="62">
+
+              <table cellpadding=0 cellspacing=0 width=100% class="etmCursor"
+                onClick="window.location='/etm/time/timesheet/etmTnsDetail.jsp?date=05.01.2024';return false"
+                title='Details of 05/01/2024'">
+                <tr>
+                    <td valign=top width=10>
+
+                            <span class=" calendarDateNormal">
+                01</span>
+            </td>
+            <td valign=middle height="62" align=center>
+
+
+
+
+
+              <span class="calendarCellRegularPast etmNoBorder">
+
+
+
+                <span class="calendarCellVacation etmNoBorder">TIME-OFF</span>
+
+
+
+
+                <BR>
+                <span class="calCellData etmCalCellData">NOT SCHEDULED</span>
+
+
+
+
+
+
+                <BR>&nbsp;<font class='overrideAsterisk'>*</font>
+
+              </span>
+            </td>
+          </tr>
+        </table>
+        </td>
+
+
+
+
+
+
+
+
+
+
+
+        <td valign=top class="calendarCellRegularPast" height="62">
+
+          <table cellpadding=0 cellspacing=0 width=100% class="etmCursor"
+            onClick="window.location='/etm/time/timesheet/etmTnsDetail.jsp?date=05.02.2024';return false"
+            title='Details of 05/02/2024'">
+                <tr>
+                    <td valign=top width=10>
+
+                            <span class=" calendarDateNormal">
+            02</span>
+        </td>
+        <td valign=middle height="62" align=center>
+
+
+
+
+
+          <span class="calendarCellRegularPast etmNoBorder">
+
+            <span class=calendarTextShiftName><br>14:00 - 20:00<br></span>
+
+
+            <SPAN>14:00</SPAN> -
+            <SPAN>20:00</SPAN>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <BR><span class=etmMoreLink>more...</span><BR>
+          </span>
+        </td>
+        </tr>
+        </table>
+        </td>
+
+
+
+
+
+
+
+
+
+
+
+        <td valign=top class="calendarCellRegularPast" height="62">
+
+          <table cellpadding=0 cellspacing=0 width=100% class="etmCursor"
+            onClick="window.location='/etm/time/timesheet/etmTnsDetail.jsp?date=05.03.2024';return false"
+            title='Details of 05/03/2024'">
+                <tr>
+                    <td valign=top width=10>
+
+                            <span class=" calendarDateNormal">
+            03</span>
+        </td>
+        <td valign=middle height="62" align=center>
+
+
+
+
+
+          <span class="calendarCellRegularPast etmNoBorder">
+
+            <span class=calendarTextShiftName><br>16:00 - 21:15<br></span>
+
+
+            <SPAN>16:00</SPAN> -
+            <SPAN>21:15</SPAN>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <BR><span class=etmMoreLink>more...</span><BR>
+          </span>
+        </td>
+        </tr>
+        </table>
+        </td>
+
+
+
+
+
+
+
+
+
+
+        <td valign=top class="calTD-NoShift" height="62">
+
+          <table cellpadding=0 cellspacing=0 width=100% class="etmCursor"
+            onClick="window.location='/etm/time/timesheet/etmTnsDetail.jsp?date=05.04.2024';return false"
+            title='Details of 05/04/2024'">
+                <tr>
+                    <td valign=top width=10>
+
+                            <span class=" calendarDateNormal">
+            04</span>
+        </td>
+        <td valign=middle height="62" align=center>
+
+
+
+
+
+          <span class="calTD-NoShift etmNoBorder">
+
+            <span class="calCellData etmCalCellData">NOT SCHEDULED</span>
+            <BR>
+
+          </span>
+        </td>
+        </tr>
+        </table>
+        </td>
+        </tr>
+        <tr>
+
+
+
+
+
+
+
+
+
+
+          <td valign=top class="calendarCellRegularPast" height="62">
+
+            <table cellpadding=0 cellspacing=0 width=100% class="etmCursor"
+              onClick="window.location='/etm/time/timesheet/etmTnsDetail.jsp?date=05.05.2024';return false"
+              title='Details of 05/05/2024'">
+                <tr>
+                    <td valign=top width=10>
+
+                            <span class=" calendarDateNormal">
+              05</span>
+          </td>
+          <td valign=middle height="62" align=center>
+
+
+
+
+
+            <span class="calendarCellRegularPast etmNoBorder">
+
+              <span class=calendarTextShiftName><br>15:00 - 19:15<br></span>
+
+
+              <SPAN>15:00</SPAN> -
+              <SPAN>19:15</SPAN>
+
+
+
+
+
+
+
+
+
+
+
+
+              <BR><span class=etmMoreLink>more...</span><BR>
+            </span>
+          </td>
+        </tr>
+        </table>
+        </td>
+
+
+
+
+
+
+
+
+
+
+
+        <td valign=top class="calendarCellRegularPast" height="62">
+
+          <table cellpadding=0 cellspacing=0 width=100% class="etmCursor"
+            onClick="window.location='/etm/time/timesheet/etmTnsDetail.jsp?date=05.06.2024';return false"
+            title='Details of 05/06/2024'">
+                <tr>
+                    <td valign=top width=10>
+
+                            <span class=" calendarDateNormal">
+            06</span>
+        </td>
+        <td valign=middle height="62" align=center>
+
+
+
+
+
+          <span class="calendarCellRegularPast etmNoBorder">
+
+            <span class=calendarTextShiftName><br>17:00 - 21:15<br></span>
+
+
+            <SPAN>17:00</SPAN> -
+            <SPAN>21:15</SPAN>
+
+
+
+
+
+
+
+
+
+
+
+
+            <BR><span class=etmMoreLink>more...</span><BR>
+          </span>
+        </td>
+        </tr>
+        </table>
+        </td>
+
+
+
+
+
+
+
+
+
+
+        <td valign=top class="calTD-NoShift" height="62">
+
+          <table cellpadding=0 cellspacing=0 width=100% class="etmCursor"
+            onClick="window.location='/etm/time/timesheet/etmTnsDetail.jsp?date=05.07.2024';return false"
+            title='Details of 05/07/2024'">
+                <tr>
+                    <td valign=top width=10>
+
+                            <span class=" calendarDateNormal">
+            07</span>
+        </td>
+        <td valign=middle height="62" align=center>
+
+
+
+
+
+          <span class="calTD-NoShift etmNoBorder">
+
+            <span class="calCellData etmCalCellData">NOT SCHEDULED</span>
+            <BR>
+
+          </span>
+        </td>
+        </tr>
+        </table>
+        </td>
+
+
+
+
+
+
+
+
+
+
+
+        <td valign=top class="calendarCellRegularPast" height="62">
+
+          <table cellpadding=0 cellspacing=0 width=100% class="etmCursor"
+            onClick="window.location='/etm/time/timesheet/etmTnsDetail.jsp?date=05.08.2024';return false"
+            title='Details of 05/08/2024'">
+                <tr>
+                    <td valign=top width=10>
+
+                            <span class=" calendarDateNormal">
+            08</span>
+        </td>
+        <td valign=middle height="62" align=center>
+
+
+
+
+
+          <span class="calendarCellRegularPast etmNoBorder">
+
+            <span class=calendarTextShiftName><br>15:30 - 20:15<br></span>
+
+
+            <SPAN>15:30</SPAN> -
+            <SPAN>20:15</SPAN>
+
+
+
+
+
+
+
+
+
+
+
+
+            <BR><span class=etmMoreLink>more...</span><BR>
+          </span>
+        </td>
+        </tr>
+        </table>
+        </td>
+
+
+
+
+
+
+
+
+
+
+
+        <td valign=top class="calendarCellRegularPast" height="62">
+
+          <table cellpadding=0 cellspacing=0 width=100% class="etmCursor"
+            onClick="window.location='/etm/time/timesheet/etmTnsDetail.jsp?date=05.09.2024';return false"
+            title='Details of 05/09/2024'">
+                <tr>
+                    <td valign=top width=10>
+
+                            <span class=" calendarDateNormal">
+            09</span>
+        </td>
+        <td valign=middle height="62" align=center>
+
+
+
+
+
+          <span class="calendarCellRegularPast etmNoBorder">
+
+            <span class=calendarTextShiftName><br>13:15 - 21:15<br></span>
+
+
+            <SPAN>13:15</SPAN> -
+            <SPAN>21:15</SPAN>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <BR><span class=etmMoreLink>more...</span><BR>
+          </span>
+        </td>
+        </tr>
+        </table>
+        </td>
+
+
+
+
+
+
+
+
+
+
+        <td valign=top class="calTD-NoShift" height="62">
+
+          <table cellpadding=0 cellspacing=0 width=100% class="etmCursor"
+            onClick="window.location='/etm/time/timesheet/etmTnsDetail.jsp?date=05.10.2024';return false"
+            title='Details of 05/10/2024'">
+                <tr>
+                    <td valign=top width=10>
+
+                            <span class=" calendarDateNormal">
+            10</span>
+        </td>
+        <td valign=middle height="62" align=center>
+
+
+
+
+
+          <span class="calTD-NoShift etmNoBorder">
+
+            <span class="calCellData etmCalCellData">NOT SCHEDULED</span>
+            <BR>
+
+          </span>
+        </td>
+        </tr>
+        </table>
+        </td>
+
+
+
+
+
+
+
+
+
+
+
+        <td valign=top class="calendarCellRegularPast" height="62">
+
+          <table cellpadding=0 cellspacing=0 width=100% class="etmCursor"
+            onClick="window.location='/etm/time/timesheet/etmTnsDetail.jsp?date=05.11.2024';return false"
+            title='Details of 05/11/2024'">
+                <tr>
+                    <td valign=top width=10>
+
+                            <span class=" calendarDateNormal">
+            11</span>
+        </td>
+        <td valign=middle height="62" align=center>
+
+
+
+
+
+          <span class="calendarCellRegularPast etmNoBorder">
+
+            <span class=calendarTextShiftName><br>14:00 - 21:15<br></span>
+
+
+            <SPAN>14:00</SPAN> -
+            <SPAN>21:15</SPAN>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <BR><span class=etmMoreLink>more...</span><BR>
+          </span>
+        </td>
+        </tr>
+        </table>
+        </td>
+        </tr>
+        <tr>
+
+
+
+
+
+
+
+
+
+
+          <td valign=top class="calendarCellRegularPast" height="62">
+
+            <table cellpadding=0 cellspacing=0 width=100% class="etmCursor"
+              onClick="window.location='/etm/time/timesheet/etmTnsDetail.jsp?date=05.12.2024';return false"
+              title='Details of 05/12/2024'">
+                <tr>
+                    <td valign=top width=10>
+
+                            <span class=" calendarDateNormal">
+              12</span>
+          </td>
+          <td valign=middle height="62" align=center>
+
+
+
+
+
+            <span class="calendarCellRegularPast etmNoBorder">
+
+              <span class=calendarTextShiftName><br>08:00 - 15:00<br></span>
+
+
+              <SPAN>08:00</SPAN> -
+              <SPAN>15:00</SPAN>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              <BR><span class=etmMoreLink>more...</span><BR>
+            </span>
+          </td>
+        </tr>
+        </table>
+        </td>
+
+
+
+
+
+
+
+
+
+
+
+        <td valign=top class="calendarCellRegularPast" height="62">
+
+          <table cellpadding=0 cellspacing=0 width=100% class="etmCursor"
+            onClick="window.location='/etm/time/timesheet/etmTnsDetail.jsp?date=05.13.2024';return false"
+            title='Details of 05/13/2024'">
+                <tr>
+                    <td valign=top width=10>
+
+                            <span class=" calendarDateNormal">
+            13</span>
+        </td>
+        <td valign=middle height="62" align=center>
+
+
+
+
+
+          <span class="calendarCellRegularPast etmNoBorder">
+
+            <span class=calendarTextShiftName><br>14:30 - 19:15<br></span>
+
+
+            <SPAN>14:30</SPAN> -
+            <SPAN>19:15</SPAN>
+
+
+
+
+
+
+
+
+
+
+
+
+            <BR><span class=etmMoreLink>more...</span><BR>
+          </span>
+        </td>
+        </tr>
+        </table>
+        </td>
+
+
+
+
+
+
+
+
+
+
+
+        <td valign=top class="calendarCellRegularPast" height="62">
+
+          <table cellpadding=0 cellspacing=0 width=100% class="etmCursor"
+            onClick="window.location='/etm/time/timesheet/etmTnsDetail.jsp?date=05.14.2024';return false"
+            title='Details of 05/14/2024'">
+                <tr>
+                    <td valign=top width=10>
+
+                            <span class=" calendarDateNormal">
+            14</span>
+        </td>
+        <td valign=middle height="62" align=center>
+
+
+
+
+
+          <span class="calendarCellRegularPast etmNoBorder">
+
+            <span class=calendarTextShiftName><br>14:30 - 20:00<br></span>
+
+
+            <SPAN>14:30</SPAN> -
+            <SPAN>20:00</SPAN>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <BR><span class=etmMoreLink>more...</span><BR>
+          </span>
+        </td>
+        </tr>
+        </table>
+        </td>
+
+
+
+
+
+
+
+
+
+
+        <td valign=top class="calTD-NoShift" height="62">
+
+          <table cellpadding=0 cellspacing=0 width=100% class="etmCursor"
+            onClick="window.location='/etm/time/timesheet/etmTnsDetail.jsp?date=05.15.2024';return false"
+            title='Details of 05/15/2024'">
+                <tr>
+                    <td valign=top width=10>
+
+                            <span class=" calendarDateNormal">
+            15</span>
+        </td>
+        <td valign=middle height="62" align=center>
+
+
+
+
+
+          <span class="calTD-NoShift etmNoBorder">
+
+            <span class="calCellData etmCalCellData">NOT SCHEDULED</span>
+            <BR>
+
+          </span>
+        </td>
+        </tr>
+        </table>
+        </td>
+
+
+
+
+
+
+
+
+
+
+        <td valign=top class="calendarCellRegularCurrent" height="62">
+
+          <table cellpadding=0 cellspacing=0 width=100% class="etmCursor"
+            onClick="window.location='/etm/time/timesheet/etmTnsDay.jsp?date=05.16.2024';return false"
+            title='Details of 05/16/2024'">
+                <tr>
+                    <td valign=top width=10>
+
+                            <span class=" calendarDateCurrent">
+            16</span>
+        </td>
+        <td valign=middle height="62" align=center>
+
+
+
+
+
+          <span class="calendarCellRegularCurrent etmNoBorder">
+
+            <span class="calCellData etmCalCellData">NOT SCHEDULED</span>
+            <BR>
+
+          </span>
+        </td>
+        </tr>
+        </table>
+        </td>
+
+
+
+
+
+
+
+
+
+
+
+        <td valign=top class="calendarCellRegularFuture" height="62">
+
+          <table cellpadding=0 cellspacing=0 width=100% class="etmCursor"
+            onClick="window.location='/etm/time/timesheet/etmTnsDay.jsp?date=05.17.2024';return false"
+            title='Details of 05/17/2024'">
+                <tr>
+                    <td valign=top width=10>
+
+                            <span class=" calendarDateNormal">
+            17</span>
+        </td>
+        <td valign=middle height="62" align=center>
+
+
+
+
+
+          <span class="calendarCellRegularFuture etmNoBorder">
+
+            <span class=calendarTextShiftName><br>14:15 - 21:15<br></span>
+
+
+            <SPAN>14:15</SPAN> -
+            <SPAN>21:15</SPAN>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <BR><span class=etmMoreLink>more...</span><BR>
+          </span>
+        </td>
+        </tr>
+        </table>
+        </td>
+
+
+
+
+
+
+
+
+
+
+
+        <td valign=top class="calendarCellRegularFuture" height="62">
+
+          <table cellpadding=0 cellspacing=0 width=100% class="etmCursor"
+            onClick="window.location='/etm/time/timesheet/etmTnsDay.jsp?date=05.18.2024';return false"
+            title='Details of 05/18/2024'">
+                <tr>
+                    <td valign=top width=10>
+
+                            <span class=" calendarDateNormal">
+            18</span>
+        </td>
+        <td valign=middle height="62" align=center>
+
+
+
+
+
+          <span class="calendarCellRegularFuture etmNoBorder">
+
+            <span class=calendarTextShiftName><br>18:00 - 21:15<br></span>
+
+
+            <SPAN>18:00</SPAN> -
+            <SPAN>21:15</SPAN>
+
+
+
+
+
+
+
+
+
+
+            <BR><span class=etmMoreLink>more...</span><BR>
+          </span>
+        </td>
+        </tr>
+        </table>
+        </td>
+        </tr>
+        <tr>
+
+
+
+
+
+
+
+
+
+
+          <td valign=top class="calendarCellRegularFuture" height="62">
+
+            <table cellpadding=0 cellspacing=0 width=100% class="etmCursor"
+              onClick="window.location='/etm/time/timesheet/etmTnsDay.jsp?date=05.19.2024';return false"
+              title='Details of 05/19/2024'">
+                <tr>
+                    <td valign=top width=10>
+
+                            <span class=" calendarDateNormal">
+              19</span>
+          </td>
+          <td valign=middle height="62" align=center>
+
+
+
+
+
+            <span class="calendarCellRegularFuture etmNoBorder">
+
+              <span class=calendarTextShiftName><br>07:00 - 11:00<br></span>
+
+
+              <SPAN>07:00</SPAN> -
+              <SPAN>11:00</SPAN>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              <BR><span class=etmMoreLink>more...</span><BR>
+            </span>
+          </td>
+        </tr>
+        </table>
+        </td>
+
+
+
+
+
+
+
+
+
+
+
+        <td valign=top class="calendarCellRegularFuture" height="62">
+
+          <table cellpadding=0 cellspacing=0 width=100% class="etmCursor"
+            onClick="window.location='/etm/time/timesheet/etmTnsDay.jsp?date=05.20.2024';return false"
+            title='Details of 05/20/2024'">
+                <tr>
+                    <td valign=top width=10>
+
+                            <span class=" calendarDateNormal">
+            20</span>
+        </td>
+        <td valign=middle height="62" align=center>
+
+
+
+
+
+          <span class="calendarCellRegularFuture etmNoBorder">
+
+            <span class=calendarTextShiftName><br>16:30 - 21:15<br></span>
+
+
+            <SPAN>16:30</SPAN> -
+            <SPAN>21:15</SPAN>
+
+
+
+
+
+
+
+
+
+
+            <BR><span class=etmMoreLink>more...</span><BR>
+          </span>
+        </td>
+        </tr>
+        </table>
+        </td>
+
+
+
+
+
+
+
+
+
+
+        <td valign=top class="calTD-NoShift" height="62">
+
+          <table cellpadding=0 cellspacing=0 width=100% class="etmCursor"
+            onClick="window.location='/etm/time/timesheet/etmTnsDay.jsp?date=05.21.2024';return false"
+            title='Details of 05/21/2024'">
+                <tr>
+                    <td valign=top width=10>
+
+                            <span class=" calendarDateNormal">
+            21</span>
+        </td>
+        <td valign=middle height="62" align=center>
+
+
+
+
+
+          <span class="calTD-NoShift etmNoBorder">
+
+            <span class="calCellData etmCalCellData">NOT SCHEDULED</span>
+            <BR>
+
+          </span>
+        </td>
+        </tr>
+        </table>
+        </td>
+
+
+
+
+
+
+
+
+
+
+
+        <td valign=top class="calendarCellRegularFuture" height="62">
+
+          <table cellpadding=0 cellspacing=0 width=100% class="etmCursor"
+            onClick="window.location='/etm/time/timesheet/etmTnsDay.jsp?date=05.22.2024';return false"
+            title='Details of 05/22/2024'">
+                <tr>
+                    <td valign=top width=10>
+
+                            <span class=" calendarDateNormal">
+            22</span>
+        </td>
+        <td valign=middle height="62" align=center>
+
+
+
+
+
+          <span class="calendarCellRegularFuture etmNoBorder">
+
+            <span class=calendarTextShiftName><br>16:30 - 21:15<br></span>
+
+
+            <SPAN>16:30</SPAN> -
+            <SPAN>21:15</SPAN>
+
+
+
+
+
+
+
+
+
+
+            <BR><span class=etmMoreLink>more...</span><BR>
+          </span>
+        </td>
+        </tr>
+        </table>
+        </td>
+
+
+
+
+
+
+
+
+
+
+        <td valign=top class="calTD-NoShift" height="62">
+
+          <table cellpadding=0 cellspacing=0 width=100% class="etmCursor"
+            onClick="window.location='/etm/time/timesheet/etmTnsDay.jsp?date=05.23.2024';return false"
+            title='Details of 05/23/2024'">
+                <tr>
+                    <td valign=top width=10>
+
+                            <span class=" calendarDateNormal">
+            23</span>
+        </td>
+        <td valign=middle height="62" align=center>
+
+
+
+
+
+          <span class="calTD-NoShift etmNoBorder">
+
+
+            <span class="calendarCellVacation etmNoBorder">TIME-OFF</span>
+
+
+
+
+
+            <BR>
+            <span class="calCellData etmCalCellData">NOT SCHEDULED</span>
+            <BR>&nbsp;<font class='overrideAsterisk'>*</font>
+
+          </span>
+        </td>
+        </tr>
+        </table>
+        </td>
+
+
+
+
+
+
+
+
+
+
+        <td valign=top class="calTD-NoShift" height="62">
+
+          <table cellpadding=0 cellspacing=0 width=100% class="etmCursor"
+            onClick="window.location='/etm/time/timesheet/etmTnsDay.jsp?date=05.24.2024';return false"
+            title='Details of 05/24/2024'">
+                <tr>
+                    <td valign=top width=10>
+
+                            <span class=" calendarDateNormal">
+            24</span>
+        </td>
+        <td valign=middle height="62" align=center>
+
+
+
+
+
+          <span class="calTD-NoShift etmNoBorder">
+
+
+            <span class="calendarCellVacation etmNoBorder">TIME-OFF</span>
+
+
+
+
+
+            <BR>
+            <span class="calCellData etmCalCellData">NOT SCHEDULED</span>
+            <BR>&nbsp;<font class='overrideAsterisk'>*</font>
+
+          </span>
+        </td>
+        </tr>
+        </table>
+        </td>
+
+
+
+
+
+
+
+
+
+
+        <td valign=top class="calTD-NoShift" height="62">
+
+          <table cellpadding=0 cellspacing=0 width=100% class="etmCursor"
+            onClick="window.location='/etm/time/timesheet/etmTnsDay.jsp?date=05.25.2024';return false"
+            title='Details of 05/25/2024'">
+                <tr>
+                    <td valign=top width=10>
+
+                            <span class=" calendarDateNormal">
+            25</span>
+        </td>
+        <td valign=middle height="62" align=center>
+
+
+
+
+
+          <span class="calTD-NoShift etmNoBorder">
+
+
+            <span class="calendarCellVacation etmNoBorder">TIME-OFF</span>
+
+
+
+
+
+            <BR>
+            <span class="calCellData etmCalCellData">NOT SCHEDULED</span>
+            <BR>&nbsp;<font class='overrideAsterisk'>*</font>
+
+          </span>
+        </td>
+        </tr>
+        </table>
+        </td>
+        </tr>
+        <tr>
+
+
+
+
+
+
+
+
+
+          <td valign=top class="calTD-NoShift" height="62">
+
+            <table cellpadding=0 cellspacing=0 width=100% class="etmCursor"
+              onClick="window.location='/etm/time/timesheet/etmTnsDay.jsp?date=05.26.2024';return false"
+              title='Details of 05/26/2024'">
+                <tr>
+                    <td valign=top width=10>
+
+                            <span class=" calendarDateNormal">
+              26</span>
+          </td>
+          <td valign=middle height="62" align=center>
+
+
+
+
+
+            <span class="calTD-NoShift etmNoBorder">
+
+
+              <span class="calendarCellVacation etmNoBorder">TIME-OFF</span>
+
+
+
+
+
+              <BR>
+              <span class="calCellData etmCalCellData">NOT SCHEDULED</span>
+              <BR>&nbsp;<font class='overrideAsterisk'>*</font>
+
+            </span>
+          </td>
+        </tr>
+        </table>
+        </td>
+
+
+
+
+
+
+
+
+
+
+        <td valign=top class="calTD-NoShift" height="62">
+
+          <table cellpadding=0 cellspacing=0 width=100% class="etmCursor"
+            onClick="window.location='/etm/time/timesheet/etmTnsDay.jsp?date=05.27.2024';return false"
+            title='Details of 05/27/2024'">
+                <tr>
+                    <td valign=top width=10>
+
+                            <span class=" calendarDateNormal">
+            27</span>
+        </td>
+        <td valign=middle height="62" align=center>
+
+
+
+
+
+          <span class="calTD-NoShift etmNoBorder">
+
+            <span class="calCellData etmCalCellData">NOT SCHEDULED</span>
+            <BR>
+
+          </span>
+        </td>
+        </tr>
+        </table>
+        </td>
+
+
+
+
+
+
+
+
+
+
+
+        <td valign=top class="calendarCellRegularFuture" height="62">
+
+          <table cellpadding=0 cellspacing=0 width=100% class="etmCursor"
+            onClick="window.location='/etm/time/timesheet/etmTnsDay.jsp?date=05.28.2024';return false"
+            title='Details of 05/28/2024'">
+                <tr>
+                    <td valign=top width=10>
+
+                            <span class=" calendarDateNormal">
+            28</span>
+        </td>
+        <td valign=middle height="62" align=center>
+
+
+
+
+
+          <span class="calendarCellRegularFuture etmNoBorder">
+
+            <span class=calendarTextShiftName><br>14:30 - 19:15<br></span>
+
+
+            <SPAN>14:30</SPAN> -
+            <SPAN>19:15</SPAN>
+
+
+
+
+
+
+
+
+
+
+            <BR><span class=etmMoreLink>more...</span><BR>
+          </span>
+        </td>
+        </tr>
+        </table>
+        </td>
+
+
+
+
+
+
+
+
+
+
+        <td valign=top class="calTD-NoShift" height="62">
+
+          <table cellpadding=0 cellspacing=0 width=100% class="etmCursor"
+            onClick="window.location='/etm/time/timesheet/etmTnsDay.jsp?date=05.29.2024';return false"
+            title='Details of 05/29/2024'">
+                <tr>
+                    <td valign=top width=10>
+
+                            <span class=" calendarDateNormal">
+            29</span>
+        </td>
+        <td valign=middle height="62" align=center>
+
+
+
+
+
+          <span class="calTD-NoShift etmNoBorder">
+
+            <span class="calCellData etmCalCellData">NOT SCHEDULED</span>
+            <BR>
+
+          </span>
+        </td>
+        </tr>
+        </table>
+        </td>
+
+
+
+
+
+
+
+
+
+
+
+        <td valign=top class="calendarCellRegularFuture" height="62">
+
+          <table cellpadding=0 cellspacing=0 width=100% class="etmCursor"
+            onClick="window.location='/etm/time/timesheet/etmTnsDay.jsp?date=05.30.2024';return false"
+            title='Details of 05/30/2024'">
+                <tr>
+                    <td valign=top width=10>
+
+                            <span class=" calendarDateNormal">
+            30</span>
+        </td>
+        <td valign=middle height="62" align=center>
+
+
+
+
+
+          <span class="calendarCellRegularFuture etmNoBorder">
+
+            <span class=calendarTextShiftName><br>13:00 - 17:00<br></span>
+
+
+            <SPAN>13:00</SPAN> -
+            <SPAN>17:00</SPAN>
+
+
+
+
+
+
+
+
+
+
+            <BR><span class=etmMoreLink>more...</span><BR>
+          </span>
+        </td>
+        </tr>
+        </table>
+        </td>
+
+
+
+
+
+
+
+
+
+
+
+        <td valign=top class="calendarCellRegularFuture" height="62">
+
+          <table cellpadding=0 cellspacing=0 width=100% class="etmCursor"
+            onClick="window.location='/etm/time/timesheet/etmTnsDay.jsp?date=05.31.2024';return false"
+            title='Details of 05/31/2024'">
+                <tr>
+                    <td valign=top width=10>
+
+                            <span class=" calendarDateNormal">
+            31</span>
+        </td>
+        <td valign=middle height="62" align=center>
+
+
+
+
+
+          <span class="calendarCellRegularFuture etmNoBorder">
+
+            <span class=calendarTextShiftName><br>16:30 - 21:15<br></span>
+
+
+            <SPAN>16:30</SPAN> -
+            <SPAN>21:15</SPAN>
+
+
+
+
+
+
+
+
+
+
+            <BR><span class=etmMoreLink>more...</span><BR>
+          </span>
+        </td>
+        </tr>
+        </table>
+        </td>
+
+
+
+
+
+
+
+
+
+
+        <td valign=top class="calTD-OutOfScope" height="62">
+
+          <table cellpadding=0 cellspacing=0 width=100% class="" onClick="">
+            <tr>
+              <td valign=top width=10>
+
+              </td>
+              <td valign=middle height="62" align=center>
+
+
+
+
+
+                <span class="calTD-OutOfScope etmNoBorder">
+
+                </span>
+              </td>
+            </tr>
+          </table>
+        </td>
+
+        </tr>
+        </table>
+      </div>
+
+
+
+
+
+
+      <input type="hidden" name="NEW_MONTH_YEAR" value="">
+
+    </div>
+
+    <table id="htmlButtonFooter" class="htmlButtonTable">
+      <tr>
+        <td class="htmlButtonCell" align=left width="33%">
+
+
+
+          <table
+            onClick="document.forms[0].NEW_MONTH_YEAR.value='04/2024';document.forms[0].submit(); return false;;return false"
+            class='imageButton' cellpadding=0 cellspacing=0>
+            <tr>
+              <td width=17><img src='/etm/images/etmbleft.png' width=17 height=39 alt='' border=0></td>
+              <td background='/etm/images/etmbbg.png' align=center nowrap>
+                <span class='buttonNavigationText'>&nbsp;April</span>
+              </td>
+              <td width=17><img src='/etm/images/etmbright.png' width=17 height=39 alt='' border=0></td>
+            </tr>
+          </table>
+
+        </td>
+        <td align=center id="scrollControls" width="33%">
+          <table class="htmlButtonTable">
+            <tr>
+              <td align=right class="htmlButtonCell" onClick="scrollUp('#scrollContainer');">
+                <img src="/etm/images/up.png" width="54" height="39" alt="Scroll To Top" title="Scroll To Top"
+                  border="0">
+              </td>
+              <td align=left class="htmlButtonCell" onClick="scrollDown('#scrollContainer');">
+                <img src="/etm/images/down.png" width="54" height="39" alt="Scroll To Bottom" title="Scroll To Bottom"
+                  border="0">
+              </td>
+            </tr>
+          </table>
+        </td>
+        <td class="htmlButtonCell" align=right width="33%">
+
+
+
+          <table
+            onClick="document.forms[0].NEW_MONTH_YEAR.value='06/2024';document.forms[0].submit(); return false;;return false"
+            class='imageButton' cellpadding=0 cellspacing=0>
+            <tr>
+              <td width=17><img src='/etm/images/etmbleft.png' width=17 height=39 alt='' border=0></td>
+              <td background='/etm/images/etmbbg.png' align=center nowrap>
+                <span class='buttonNavigationText'>June&nbsp;</span>
+              </td>
+              <td width=17><img src='/etm/images/etmbright.png' width=17 height=39 alt='' border=0></td>
+            </tr>
+          </table>
+
+        </td>
+      </tr>
+    </table>
+
+    <script type="text/javascript">
+      var scroller = new Scroller();
+      scroller.setDefaults();
+      var mainTableSelector = "#scrollContainer .etmScheduleTable";
+
+      $(document).ready(function () {
+        standardizeRowHeights(mainTableSelector);
+        scroller.scrollAndControls();
+      });
+
+      $(window).resize(function () {
+        scroller.scrollAndControls();
+      });  
+    </script>
+
+
+    <input type='hidden' id='wbXpos' name='wbXpos' value='-1'>
+    <input type='hidden' id='wbYpos' name='wbYpos' value='-1'>
+  </form>
+
+  <script type='text/javascript'>
+
+
+    function getLocalizedMessage_INCORRECT_VALUE() {
+      return "The value entered in the field is not correct.";
+    }
+
+
+    function initializePage() {
+
+      methodInitializePageFinished = true;
+    }
+  </script>
+</body>
+
+</html>

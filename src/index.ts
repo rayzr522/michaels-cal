@@ -166,11 +166,17 @@ try {
   console.log("logged in");
 
   const currentMonthSchedule = await fetchSchedule({});
-  console.log("currentMonthSchedule", currentMonthSchedule);
+  writeFileSync(
+    "./out/current-month-schedule.json",
+    JSON.stringify(currentMonthSchedule, null, 2),
+  );
 
   const nextMonthYear = getNextMonthYear(currentMonthSchedule.date);
   const nextMonthSchedule = await fetchSchedule({ monthYear: nextMonthYear });
-  console.log("nextMonthSchedule", nextMonthSchedule);
+  writeFileSync(
+    "./out/next-month-schedule.json",
+    JSON.stringify(nextMonthSchedule, null, 2),
+  );
 
   const now = Date.now();
   const sequence = Math.floor(now / 60_000);

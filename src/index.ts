@@ -4,6 +4,7 @@ import got from "got";
 import ics, { EventAttributes } from "ics";
 import { parse } from "node-html-parser";
 import { CookieJar } from "tough-cookie";
+import { env } from "./env";
 
 const cookieJar = new CookieJar();
 const michaelsClient = got.extend({
@@ -52,8 +53,8 @@ async function getLoginParams() {
 async function loginToWfm(opts: { wbat: string; url_login_token: string }) {
   await michaelsClient.post("login.jsp", {
     form: {
-      login: process.env.MICHAELS_USER,
-      password: process.env.MICHAELS_PASS,
+      login: env.MICHAELS_USER,
+      password: env.MICHAELS_PASS,
       pageAction: "login",
       wbXpos: -1,
       wbYpos: -1,
@@ -209,7 +210,7 @@ try {
           start: next.start.getTime(),
           end: next.end.getTime(),
           title: "Work shift",
-          location: process.env.MICHAELS_ADDRESS || undefined,
+          location: env.MICHAELS_ADDRESS,
           busyStatus: "BUSY",
           transp: "OPAQUE",
         });

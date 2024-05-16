@@ -130,7 +130,6 @@ type NormalizedScheduleEntry =
       date: Date;
       start: Date;
       end: Date;
-      shiftName: string;
     };
 
 function normalizeScheduleEntries(
@@ -151,7 +150,6 @@ function normalizeScheduleEntries(
         date: next.date,
         start: new Date(`${next.date.toDateString()} ${shiftStartTime}`),
         end: new Date(`${next.date.toDateString()} ${shiftEndTime}`),
-        shiftName: next.shiftName,
       });
     }
     return acc;
@@ -201,7 +199,7 @@ try {
           ...partialAttributes,
           start: next.date.getTime(),
           duration: { days: next.days },
-          title: "Michaels: Vacation",
+          title: "Vacation",
           busyStatus: "FREE",
           transp: "TRANSPARENT",
         });
@@ -210,7 +208,7 @@ try {
           ...partialAttributes,
           start: next.start.getTime(),
           end: next.end.getTime(),
-          title: `Michaels: ${next.shiftName} shift`,
+          title: "Work shift",
           location: process.env.MICHAELS_ADDRESS || undefined,
           busyStatus: "BUSY",
           transp: "OPAQUE",

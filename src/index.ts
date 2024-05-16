@@ -64,8 +64,14 @@ async function loginToWfm(opts: { wbat: string; url_login_token: string }) {
   });
 }
 
-async function fetchSchedule() {
-  const res = await michaelsClient.get("time/timesheet/etmTnsMonth.jsp").text();
+async function fetchSchedule(opts: { monthYear?: string }) {
+  const res = await michaelsClient
+    .get("time/timesheet/etmTnsMonth.jsp", {
+      searchParams: {
+        NEW_MONTH_YEAR: opts.monthYear,
+      },
+    })
+    .text();
   writeFileSync("./out/schedule.html", res);
   const html = parse(res);
 
@@ -99,7 +105,15 @@ try {
   console.log("loginParams", loginParams);
   await loginToWfm(loginParams);
   console.log("logged in");
-  console.log(await fetchSchedule());
+  const currentMonthSchedule = await fetchSchedule({});
+  console.log("currentMonthSchedule", currentMonthSchedule);
+  const currentMonth = new Date(
+    `${currentMonthSchedule.month} ${currentMonthSchedule.year}`,
+  );
+  const nextMonth = currentMonth.getMonth() + 1;
+  const nextMonthYear = `${(nextMonth % 12) + 1}/${currentMonth.getFullYear() + Math.floor(nextMonth / 12)}`;
+  const nextMonthSchedule = await fetchSchedule({ monthYear: nextMonthYear });
+  console.log("nextMonthSchedule", nextMonthSchedule);
 } catch (e) {
   console.error("got error:", e);
   process.exit(1);

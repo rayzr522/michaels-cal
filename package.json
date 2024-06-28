@@ -5,7 +5,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node --import=tsx --env-file=.env src/index.ts"
+    "start": "node --import=tsx --env-file=.env src/index.ts",
+    "fix": "biome check --write ."
   },
   "keywords": [],
   "author": "",

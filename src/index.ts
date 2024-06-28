@@ -68,11 +68,14 @@ async function loginToWfm(opts: { wbat: string; url_login_token: string }) {
   console.log({
     status: res.statusCode,
     body: res.body,
-    cookie: res.headers["set-cookie"],
+    headers: res.headers,
   });
 
   if (res.body.includes("Invalid password!")) {
     throw new Error("Invalid password");
+  }
+  if (!res.headers.location) {
+    throw new Error("Login didnt redirect, assuming failure");
   }
 }
 

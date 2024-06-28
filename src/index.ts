@@ -1,7 +1,7 @@
-import { fail } from "assert";
-import { writeFileSync } from "fs";
+import { fail } from "node:assert";
+import { writeFileSync } from "node:fs";
 import got from "got";
-import ics, { EventAttributes } from "ics";
+import ics, { type EventAttributes } from "ics";
 import { parse } from "node-html-parser";
 import { CookieJar } from "tough-cookie";
 import { env } from "./env";
@@ -51,7 +51,7 @@ async function getLoginParams() {
 }
 
 async function loginToWfm(opts: { wbat: string; url_login_token: string }) {
-  await michaelsClient.post("login.jsp", {
+  const res = await michaelsClient.post("login.jsp", {
     form: {
       login: env.MICHAELS_USER,
       password: env.MICHAELS_PASS,
@@ -64,6 +64,16 @@ async function loginToWfm(opts: { wbat: string; url_login_token: string }) {
     },
     followRedirect: false,
   });
+
+  console.log({
+    status: res.statusCode,
+    body: res.body,
+    cookie: res.headers["set-cookie"],
+  });
+
+  if (res.body.includes("Invalid password!")) {
+    throw new Error("Invalid password");
+  }
 }
 
 async function fetchSchedule(opts: {
@@ -122,16 +132,16 @@ function getNextMonthYear(date: Date) {
 
 type NormalizedScheduleEntry =
   | {
-      type: "vacation";
-      date: Date;
-      days: number;
-    }
+    type: "vacation";
+    date: Date;
+    days: number;
+  }
   | {
-      type: "scheduled";
-      date: Date;
-      start: Date;
-      end: Date;
-    };
+    type: "scheduled";
+    date: Date;
+    start: Date;
+    end: Date;
+  };
 
 function normalizeScheduleEntries(
   entries: ScheduleEntry[],

@@ -1,4 +1,4 @@
-import { fail } from "assert";
+import { fail } from "node:assert";
 
 export const env = {
   MICHAELS_USER: process.env.MICHAELS_USER ?? fail("missing MICHAEL_USER"),

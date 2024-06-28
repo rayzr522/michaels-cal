@@ -65,14 +65,13 @@ async function loginToWfm(opts: { wbat: string; url_login_token: string }) {
     followRedirect: false,
   });
 
-  console.log({
-    status: res.statusCode,
-    body: res.body,
-    headers: res.headers,
-  });
-
   if (res.body.includes("Invalid password!")) {
     throw new Error("Invalid password");
+  }
+  if (
+    !cookieJar.getCookiesSync(res.url).some((it) => it.key === "JSESSIONID")
+  ) {
+    throw new Error("Missing JSESSIONID cookie, assuming failure");
   }
   if (!res.headers.location) {
     throw new Error("Login didnt redirect, assuming failure");
@@ -135,16 +134,16 @@ function getNextMonthYear(date: Date) {
 
 type NormalizedScheduleEntry =
   | {
-    type: "vacation";
-    date: Date;
-    days: number;
-  }
+      type: "vacation";
+      date: Date;
+      days: number;
+    }
   | {
-    type: "scheduled";
-    date: Date;
-    start: Date;
-    end: Date;
-  };
+      type: "scheduled";
+      date: Date;
+      start: Date;
+      end: Date;
+    };
 
 function normalizeScheduleEntries(
   entries: ScheduleEntry[],
@@ -198,43 +197,44 @@ try {
     ...nextMonthSchedule.schedule,
   ]);
 
-  const cal = ics.createEvents(
-    normalizedEntries.reduce((acc, next) => {
-      const partialAttributes = {
-        uid: `michaels-${next.date.getTime()}`,
-        sequence,
-        created: currentMonthSchedule.date.getTime(),
-        lastModified: now,
-        calName: "Michaels Work Schedule",
-      } satisfies Partial<EventAttributes>;
+  const icsEvents = normalizedEntries.reduce((acc, next) => {
+    const partialAttributes = {
+      uid: `michaels-${next.date.getTime()}`,
+      sequence,
+      created: currentMonthSchedule.date.getTime(),
+      lastModified: now,
+      calName: "Michaels Work Schedule",
+    } satisfies Partial<EventAttributes>;
 
-      if (next.type === "vacation") {
-        acc.push({
-          ...partialAttributes,
-          start: next.date.getTime(),
-          duration: { days: next.days },
-          title: "Vacation",
-          busyStatus: "FREE",
-          transp: "TRANSPARENT",
-        });
-      } else if (next.type === "scheduled") {
-        acc.push({
-          ...partialAttributes,
-          start: next.start.getTime(),
-          end: next.end.getTime(),
-          title: "Work shift",
-          location: env.MICHAELS_ADDRESS,
-          busyStatus: "BUSY",
-          transp: "OPAQUE",
-        });
-      }
-      return acc;
-    }, [] as EventAttributes[]),
-  );
+    if (next.type === "vacation") {
+      acc.push({
+        ...partialAttributes,
+        start: next.date.getTime(),
+        duration: { days: next.days },
+        title: "Vacation",
+        busyStatus: "FREE",
+        transp: "TRANSPARENT",
+      });
+    } else if (next.type === "scheduled") {
+      acc.push({
+        ...partialAttributes,
+        start: next.start.getTime(),
+        end: next.end.getTime(),
+        title: "Work shift",
+        location: env.MICHAELS_ADDRESS,
+        busyStatus: "BUSY",
+        transp: "OPAQUE",
+      });
+    }
+    return acc;
+  }, [] as EventAttributes[]);
+
+  const cal = ics.createEvents(icsEvents);
   if (!cal.value || cal.error) {
     throw new Error(`error generating ics: ${cal.error?.message ?? "unknown"}`);
   }
   writeFileSync("./out/michaels-cal.ics", cal.value);
+  console.log(`wrote calendar with ${icsEvents.length} events`);
 } catch (e) {
   console.error("got error:", e);
   process.exit(1);
